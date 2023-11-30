@@ -1,0 +1,168 @@
+<!-- the generic template for each page of the website -->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		{% block title %}
+			<title>Record Rental</title>
+		{% endblock %}
+		<link rel="icon" type="image/x-icon" href="/static/images/favicon.ico">
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+			crossorigin="anonymous" />
+		<!-- Add additional CSS in static file -->
+		{% load static %}
+		<link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+		<!-- Material Symbols Stylesheet -->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@40,400,1,200" />
+		<!-- Import Custom Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=DM+Sans&family=DM+Serif+Display&display=swap" rel="stylesheet">
+	</head>
+	<body>
+		<!-- fluid container -->
+		<div class="container-fluid">
+					{% block sidebar %}
+						<!-- the nav div -->
+						<div class="nav">
+							<!-- the unordered list of the navigation links -->
+							<ul class="sidebar-nav">
+								<!-- nav list item -->
+								<li>
+									<!-- the home page link -->
+									<a href="{% url 'index' %}" tabindex="1">
+										<!-- link should show this icon on mobile only -->
+										<span class="material-symbols-rounded mobile-show">home</span>
+										<!-- link should show this text when the screen is 700px or bigger -->
+										<span class="mobile-hide">Home</span>
+									</a>
+								</li>
+								<!-- nav list item -->
+								<li>
+									<!-- the shop page link -->
+									<a href="{% url 'shop' %}" tabindex="2">
+										<!-- link should show this icon on mobile only -->
+										<span class="material-symbols-rounded mobile-show">shopping_cart</span>
+										<!-- link should show this text when the screen is 700px or bigger -->
+										<span class="mobile-hide">Shop</span>
+									</a>
+								</li>
+								<!-- nav list item -->
+								<li>
+									<!-- the 'about us' page link -->
+									<a href="{% url 'about-us' %}" tabindex="3">
+										<!-- link should show this icon on mobile only -->
+										<span class="material-symbols-rounded mobile-show">info</span>
+										<!-- link should show this text when the screen is 700px or bigger -->
+										<span class="mobile-hide">About Us</span>
+									</a>
+								</li>
+								<!-- nav list item -->
+								<li>
+									<!-- the 'contact us' page link -->
+									<a href="{% url 'contact-us' %}" tabindex="4">
+										<!-- link should show this icon on mobile only -->
+										<span class="material-symbols-rounded mobile-show">contact_support</span>
+										<!-- link should show this text when the screen is 700px or bigger -->
+										<span class="mobile-hide">Contact Us</span>
+									</a>
+								</li>
+								<!-- if the user is logged in, show these links -->
+								{% if user.is_authenticated %}
+									<!-- nav list item -->
+									<li  class="nav-right">
+										<!-- the logout link -->
+										<a href="{% url 'logout' %}?next={{ request.path }}" tabindex="6">
+											<!-- link should show this icon on mobile only -->
+											<span class="material-symbols-rounded mobile-show">logout</span>
+											<!-- link should show this text when the screen is 700px or bigger -->
+											<span class="mobile-hide">Logout</span>
+										</a>
+									</li>
+									<!-- nav list item -->
+									<li class="nav-right">
+										<!-- the user's rented items page link -->
+										<a href="{% url 'your-items' %}" tabindex="5">
+											<!-- link should show this icon on mobile only -->
+											<span class="material-symbols-rounded mobile-show">shopping_bag</span>
+											<!-- link should show this text when the screen is 700px or bigger -->
+											<span class="mobile-hide">Your Items</span>
+										</a>
+									</li>
+									<!-- nav list item -->
+									<li class="nav-right-user">
+										<!-- the user's username -->
+										<span class="material-symbols-rounded mobile-show">{{ user.get_username }}</span>
+										<!-- the user's username -->
+										<span class="mobile-hide">{{ user.get_username }}</span>
+									</li>
+									<!-- if the user is not logged into the site, show this link instead -->
+									{% else %}
+										<!-- nav list item -->
+										<li class="nav-right">
+											<!-- the login link -->
+											<a href="{% url 'login' %}?next={{ request.path }}">
+												<!-- link should show this icon on mobile only -->
+												<span class="material-symbols-rounded mobile-show">login</span>
+												<!-- link should show this text when the screen is 700px or bigger -->
+												<span class="mobile-hide">Login</span>
+											</a>
+										</li>
+								{% endif %}
+							</ul>
+						</div>
+					{% endblock %}
+					<!-- the content block -->
+					{% block content %}
+					{% endblock %}
+					<!-- pagination -->
+					{% block pagination %}
+						<!-- if the page is paginated, show this div -->
+						{% if is_paginated %}
+							<!-- the pagination div -->
+							<div class="pagination">
+								<!-- the pagination links -->
+								<span class="page-links">
+									<!-- if there is a previous page, show this link -->
+									{% if page_obj.has_previous %}
+											<a href="{{ request.path }}?page={{ page_obj.previous_page_number }}">previous</a>
+									{% endif %}
+									<!-- the number of the current page -->
+									<span class="page-current">
+											Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+									</span>
+									<!-- if there is a next page, show this link -->
+									{% if page_obj.has_next %}
+											<a href="{{ request.path }}?page={{ page_obj.next_page_number }}">next</a>
+									{% endif %}
+								</span>
+							</div>
+						{% endif %}
+					{% endblock %}
+				<!-- the footer div -->
+				<div class="footer">
+					<!-- the footer text -->
+					<div class="footer-text">
+						<!-- the store's phone number -->
+						<p><b>Phone:</b> 000-000-0000</p>
+						<!-- the store's email address -->
+						<p><b>Email:</b> <a href="mailto:emailaddress@gmail.com">emailaddress@gmail.com</a></p>
+						<!-- a white dot for decoration, this should not show on screen readers -->
+						<p class="white-circle" aria-hidden="true">⚪</p>
+						<!-- the store's street address -->
+						<p class="address">000 Address St.</p>
+						<!-- the city and state the store is located in -->
+						<p>City Name, XX</p>
+						<!-- the store's location's zip code -->
+						<p>00000</p>
+						<!-- the country the store is located in -->
+						<p>USA</p>
+					</div>
+				</div>
+		</div>
+	</body>
+</html>

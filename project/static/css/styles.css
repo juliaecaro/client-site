@@ -1,0 +1,1067 @@
+/* Julia Caro */
+/* Last edited on: November 30, 2023 */
+
+/* CSS Reset */
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html, body {
+	margin: 0;
+	height: 100%;
+	width: 100%;
+}
+
+/* The CSS */
+
+/* everything on focus */
+*:focus {
+	outline: none;
+	border: 5px solid #E4008A;
+}
+
+/* the body */
+body {
+	background-color: #f9fafb;
+}
+
+/* centered text, paragraphs with borders, and the about text */
+.centertext, .p-border {
+	margin-bottom: 0px;
+	line-height: 1;
+	width: 445px;
+	padding-bottom: 13px;
+}
+
+/* centered text and centered messages */
+.centertext, .center-message {
+	text-align: center;
+}
+
+/* centered messages and paragraphs with borders */
+.center-message, .p-border {
+	border-bottom: 1px solid #000;
+}
+
+/* centered messages */
+.center-message {
+	text-align: center;
+	padding-bottom: 10px;
+}
+
+/* paragraphs with borders, the paragraph before the contact form, and the home content text */
+.p-border, #form-paragraph, .home-content-text {
+	text-align: justify;
+}
+
+.home-content-text {
+	margin-left: auto;
+	margin-right: auto;
+	width: fit-content;
+}
+
+/* unordered lists */
+ul {
+	margin-top: 0px;
+	margin-bottom: 10px;
+	display: inline-block;
+	text-align: left;
+}
+
+/* individual list items */
+li {
+	font-size: 18px;
+	font-family: 'DM Sans', sans-serif;
+}
+
+/* first heading and second heading */
+h1, h2 {
+	text-align: center;
+	font-family: 'DM Serif Display', serif;
+	line-height: 1;
+	margin-bottom: 0;
+}
+
+/* first heading */
+h1 {
+	font-size: 65px;
+}
+
+/* second heading */
+h2 {
+	font-size: 45px;
+	margin: 0 auto 9px auto;
+}
+
+/* hr */
+hr {
+	margin: 10px 0;
+	opacity: 0.5;
+	border-top: 1.5px dotted #000;
+	border-style: dashed;
+}
+
+/* the h1 on the home page */
+.main-title {
+	margin-left: auto;
+	margin-right: auto;
+	line-height: 0.8;
+}
+
+/* paragraphs */
+p {
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 0;
+	font-family: 'DM Sans', sans-serif;
+	font-size: 18px;
+	text-align: center;
+	line-height: 1.1;
+}
+
+/* bold and strong */
+b, strong {
+	font-family: 'DM Serif Display', serif;
+	letter-spacing: 0.5px;
+}
+
+/* the fluid container (contains everything) */
+.container-fluid {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	margin-left: 0;
+	margin-right: 0;
+	padding: 0;
+	background-color: #000;
+}
+
+/* the home page's banner and every other page's short banner */
+.banner, .short-banner {
+	width: 100%;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-color: #000;
+	display: flex;
+	justify-content:center;
+	flex-direction: column;
+	flex-shrink: 0;
+	line-height: 1;
+}
+
+/* home page's banner */
+.banner {
+	height: 225px;
+	background-image: radial-gradient(circle, rgba(0,0,0,1) 260px, rgba(0,0,0,0) 265px), url("../images/tall_banner_images/back-wall.jpg");
+	box-shadow: inset 0 0 0 100vmax rgba(0,0,0,.1);
+	background-position-y: 42%;
+}
+
+/* every other page's short banner */
+.short-banner {
+	height: 200px;
+	box-shadow: inset 0 0 0 100vmax rgba(0,0,0,.1);
+}
+
+/* the shop page and item detail page banners */
+.shop-banner, .detail-banner {
+	background-image: radial-gradient(circle, rgba(0,0,0,1) 260px, rgba(0,0,0,0) 265px), url("../images/short_banner_images/jazz-records.jpg");
+	background-position-y: 34%;
+}
+
+/* the about page banner */
+.about-banner {	
+	background-image: radial-gradient(circle, rgba(0,0,0,1) 260px, rgba(0,0,0,0) 265px), url("../images/short_banner_images/pink-and-yellow-records.jpg");
+	background-position-y: 45%;
+}
+
+/* the contact page banner */
+.contact-banner {
+	background-image: radial-gradient(circle, rgba(0,0,0,1) 260px, rgba(0,0,0,0) 265px), url("../images/short_banner_images/assorted-phones.jpg");
+	background-position-y: 70%;
+}
+
+/* the user's rented items list page banner */
+.rented-banner {
+	background-image: radial-gradient(circle, rgba(0,0,0,1) 260px, rgba(0,0,0,0) 265px), url("../images/short_banner_images/pink-record.jpg");
+	background-position-y: 44%;
+}
+
+/* the registration pages' banner */
+.registration-banner {
+	background-image: url("../images/tall_banner_images/back-wall.jpg");
+	background-position-y: 42%;
+}
+
+/* every banner's text */
+.banner-text {
+	text-align: center;
+	position: relative;
+	color: white;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-shadow: 0px 0px 10px #000;
+	width: fit-content;
+}
+
+/* the home page's content div, the shop page's content div, and every other page's content div */
+.home-content, .shop-content, .content {
+	width: 100%;
+	height: auto;
+	flex-grow: 2;
+	background-color: #e3dfde;
+	color: #0A0700;
+}
+
+/* the home page's content div and every other page's content div */
+.home-content, .content {
+	padding: 20px 0px;
+	box-shadow: inset 0px 14px 12px -12px #000,
+		inset 0px 0px 0px 0px #fff,
+		inset 0px -14px 12px -12px #000,
+		inset 0px 0px 0px 0px #fff;
+	-webkit-box-shadow: inset 0px 14px 12px -12px #000,
+		inset 0px 0px 0px 0px #fff,
+		inset 0px -14px 12px -12px #000,
+		inset 0px 0px 0px 0px #fff;
+	-moz-box-shadow: inset 0px 14px 12px -12px #000,
+		inset 0px 0px 0px 0px #fff,
+		inset 0px -14px 12px -12px #000,
+		inset 0px 0px 0px 0px #fff;
+}
+
+/* the shop page's content div */
+.shop-content {
+	padding: 10px;
+}
+
+/* the contact page's content div */
+.form-content {
+	width: 445px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* the footer */
+.footer {
+	background-image: radial-gradient(circle, rgba(0,0,0,1) 260px, rgba(0,0,0,0) 265px), url('../images/tall_banner_images/assorted-records.jpg');
+	box-shadow: inset 0 0 0 100vmax rgba(0,0,0,.1);
+	height: 225px;
+	width: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-color: #000;
+	flex-shrink: 0;
+}
+
+/* the entire footer text */
+.footer-text {
+	text-align: center;
+	position: relative;
+	color: white;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: fit-content;
+	font-size: 25px;
+	font-family: 'DM Sans', sans-serif;
+	height: 225px;
+}
+
+/* the paragraphs in the footer text */
+.footer-text p {
+	font-size: 18px;
+	border-bottom: none;
+	padding-bottom: 0;
+	text-align: center;
+	font-weight: bold;
+}
+
+/* the footer's bold text */
+.footer-text bold {
+	font-family: 'DM Serif Display', serif;
+}
+
+/* the email link in the footer text */
+.footer-text a {
+	color: #fff;
+	text-decoration: none;
+	letter-spacing: 0.5px;
+	transition: 0.4s;
+}
+
+/* footer links on hover */
+.footer-text a:hover {
+	color: #454545;
+}
+
+/* the white and black decoration circles */
+.white-circle, .footer-text .white-circle, .black-circle {
+	display: block;
+	font-size: 65px;
+}
+
+/* the white decoration circles */
+.white-circle, .footer-text .white-circle {
+	scale: 50%;
+	line-height: 0.8;
+}
+
+/* the black decoration circles */
+.black-circle {
+	scale: 18%;
+	line-height: 0.3;
+}
+
+/* the about page's content text */
+.about-text {
+	width: 445px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* the first paragraph child of the about page content text, and item detail paragraphs */
+.about-text p:first-child, .item-paragraph {
+	text-indent: 50px;
+}
+
+/* the last paragraph child of the about page content text */
+.about-text p:last-child {
+	padding-bottom: 0px;
+}
+
+/* justified text and item detail paragraphs */
+.justify-text, .item-paragraph {
+	text-align: justify;
+	padding-bottom: 12px;
+}
+
+/* item detail paragraphs */
+.item-paragraph {
+	margin-top: 12px;
+	padding-bottom: 0px;
+}
+
+/* after the item detail paragraphs, the form paragraph, and any registration text */
+.item-paragraph:after, #form-paragraph:after, .registration-text:after {
+	content: "\266B";
+	font-size: 20px;
+	text-align: center;
+	display: block;
+	width: 100%;
+	text-indent: 0px;
+	margin-top: 7px;
+}
+
+/* contains the item image and statistics */
+.item-details {
+	width: 445px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* contains the item statistics */
+.item-stats {
+	margin-left: auto;
+	margin-right: auto;
+	width: fit-content;
+}
+
+/* the item details */
+.item-statistic {
+	text-align: left;
+}
+
+/* the image on an item detail page's div */
+.item-image {
+	margin-bottom: 12px;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	position: relative;
+	display: inline-block;
+	background-color: #000;
+}
+
+/* the image on an item detail page */
+.item-image img {
+	opacity: 0.85;
+}
+
+/* contains the item statistics' div and the item paragraph */
+.item-information {
+	max-width: fit-content;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* adjustments for any list divs */
+div.list, .items {
+	text-align: center;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: stretch;
+}
+
+/* items on the item list */
+.item {
+	height: 235px;
+	width: 235px;
+	margin: 3px;
+	background-color: #000;
+}
+
+/* the 'shop' page list, contains all list items */
+.item-list {
+	list-style-type: none;
+	margin-bottom: 0;
+	padding: 18px;
+	background-color: transparent;
+	text-align: center;
+	width: 75%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-content: flex-start;
+	gap: 17px 17px;
+}
+
+/* the individual item's text */
+.item-text {
+	text-align: center;
+	bottom: 0px;
+	line-height: 1;
+	position: relative;
+	top: -5px;
+	left: -5px;
+	height: 235px;
+	width: 235px;
+	background: radial-gradient(circle, rgba(255,255,255,1) 47%, rgba(255,255,255,0) 48%);
+}
+
+/* the item text has a link */
+.item-text a {
+	color: #000;
+	font-size: 25px;
+	font-family: 'DM Serif Display', serif;
+	text-decoration: none;
+	display: block;
+	height: 100%;
+	width: 100%;
+	border-radius: 50%;
+	border: 5px solid rgba(0,0,0,0);
+	transition: 0.4s;
+}
+
+/* item text link on focus */
+.item-text a:focus {
+	border: 5px solid #E4008A;
+}
+
+/* the text on the item link */
+.link-text {
+	padding-top: 77px;
+	padding-bottom: 77px;
+	text-align: center;
+}
+
+/* title of an item */
+.item-title {
+	font-family: 'DM Serif Display', serif;
+	font-size: 25px;
+	text-align: center;
+	margin-bottom: 1px;
+}
+
+/* artist of an item */
+.item-artist {
+	font-size: 18px;
+	text-align: center;
+}
+
+/* the list items in the item-list */
+.item-list li {
+	background-repeat: no-repeat;
+	background-size: 235px 235px;
+	background-position: center;
+	border-radius: 50%;
+	border: 5px solid transparent;
+	box-shadow: 0 0 10px 1px #000,
+		inset 0 0 0 100vmax rgba(0,0,0,.1);
+	transition: 0.4s;
+}
+
+/* list items on hover */
+.item-list li:hover {
+	box-shadow: 0 0 0px 0px rgba(0,0,0,0),
+		inset 0 0 0 100vmax rgba(0,0,0,.5);
+	border: 5px solid rgba(0,0,0,0.5);
+}
+
+/* the first three list items */
+.item-list li:nth-child(-n+3) {
+	background-image: url("../images/grid_images/record-collection.jpg");
+}
+
+/* the second three list items */
+.item-list li:nth-child(n+4):nth-child(-n+6) {
+	background-image: url("../images/grid_images/stored-cds.jpg");
+}
+
+/* the third three list items */
+.item-list li:nth-child(n+7):nth-child(-n+9) {
+	background-image: url("../images/grid_images/cassette-stacks.jpg");
+}
+
+/* the tenth item */
+.item-list li:nth-child(10) {
+	background-image: url("../images/grid_images/cassette-tapes.jpg");	
+}
+
+/* the entire navigation bar */
+.nav {
+	position: sticky;
+	top: 0;
+	z-index: 1;
+}
+
+/* the sidebar navigation */
+.sidebar-nav {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	height: 84px;
+	background-color: #000;
+	color: #fff;
+	padding-left: 30px;
+	padding-right: 30px;
+	font-size: 32px;
+	width: 100%;
+	position: relative;
+	overflow-y: hidden;	
+}
+
+/* the sidebar nav's li elements in the unordered list */
+ul.sidebar-nav li {
+	list-style-type: none;
+	float: left;
+	text-align: center;
+	font-weight: bold;
+	font-size: 32px;
+	padding-left: 0px;
+	font-family: 'DM Serif Display', serif;
+	letter-spacing: 1px;
+}
+
+/* the sidebar nav's li elements in the unordered list which should be on the right side */
+ul.sidebar-nav li.nav-right, ul.sidebar-nav li.nav-right-user {
+	float: right;
+	text-transform: uppercase;
+	padding-left: 0px;
+}
+
+/* specifically the user's profile name in the unordered list which should be on the right side*/
+ul.sidebar-nav li.nav-right-user {
+	padding: 18px 16px;
+}
+
+/* links in the sidebar nav unordered list */
+ul.sidebar-nav a {
+	display: block;
+	text-transform: uppercase;
+	color: #FFFFFF;
+	text-decoration: none;
+	padding: 18px 21px;
+	font-size: 32px;
+	transition: 0.4s;
+}
+
+/* links in the sidebar nav unordered list on hover */
+ul.sidebar-nav a:hover {
+	background-color: #454545;
+}
+
+/* links in the sidebar nav unordered list on focus */
+ul.sidebar-nav a:focus {
+	background-color: #E4008A;
+	border: none;
+}
+
+/* any error list messages */
+.errorlist {
+	margin-bottom: 2px;
+	float: right;
+	list-style-type: none;
+	width: 350px;
+	padding-left: 0;
+	line-height: 1.3;
+}
+
+/* banner paragraph on the home page */
+.home-text {
+	text-align: center;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	border: none;
+	width: 70%;
+	font-weight: bold;
+}
+
+/* list on the home page */
+.home-list {
+	margin-top: 10px;
+}
+
+/* the markers on the home and rented list pages */
+.home-list li::marker, .rented-list li::marker {
+	content: "\266B";
+	font-size: 20px;
+	line-height: 1;
+}
+
+/* the space before the list item on the home and rented list pages */
+.home-list li:before, .rented-list li:before {
+	content: "";
+	margin-left: 5px;
+}
+
+/* the rented list */
+.rented-list {
+	font-size: 18px;
+}
+
+/* links on the rented list */
+.rented-list li a {
+	color: #000;
+	font-family: 'DM Serif Display', serif;
+	text-decoration: none;
+	transition: 0.4s;
+	font-weight: bold;
+}
+
+/* links on the rented list on hover */
+.rented-list li a:hover {
+	color: #454545;
+}
+
+/* the big textarea box in the contact form */
+textarea {
+	min-height: 125px;
+	height: 125px;
+	width: 350px;
+	resize: vertical;
+	box-sizing: border-box;
+	line-height: 1.1;
+}
+
+/* btns on hover */
+.btn:hover {
+	color: #fff;
+}
+
+/* form buttons and other buttons */
+.form-buttons, .buttons {
+	padding-top: 12px;
+	width: fit-content;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* registration pages' inputs */
+.registration-input {
+	margin-top: 8px;
+}
+
+/* paragraphs with links on registration pages */
+.registration-link {
+	font-family: 'DM Serif Display', serif;
+}
+
+/* links on registration pages */
+.registration-link a {
+	color: #000;
+	transition: 0.4s;
+	text-decoration: none;
+}
+
+/* links on registration pages on hover */
+.registration-link a:hover {
+	color: #454545;
+}
+
+/* submit and reset inputs */
+input[type="submit"], input[type="reset"] {
+	text-align: center;
+	background-color: #000;
+	color: #fff;
+	border-radius: 8px;
+	border: 2px solid #000;
+	padding: 4px 7px;
+	box-shadow: 0 2px 5px 1px #696969;
+	transition: 0.4s;
+	font-family: 'DM Serif Display', serif;
+	font-size: 21px;
+	letter-spacing: 0.5px;
+	text-transform: uppercase;
+}
+
+/* reset input */
+input[type="reset"] {
+	margin-left: 5px;
+}
+
+/* submit and reset inputs on hover */
+input[type="submit"]:hover, input[type="reset"]:hover {
+	box-shadow: none;
+	background-color: #454545;
+	border: 2px solid #454545;
+}
+
+/* submit and reset inputs on focus */
+input[type="submit"]:focus, input[type="reset"]:focus {
+	background-color: #E4008A;
+	border: 2px solid #E4008A;
+}
+
+/* forms */
+form {
+	width: fit-content;
+	margin: 0px auto 10px auto;
+	text-align: left;
+}
+
+/* the contact page form */
+.contact-form {
+	margin: 0px auto 10px auto;
+}
+
+/* tables */
+table {
+	border-collapse: separate; 
+	border-spacing: 0px 8px;
+	display: flex;
+	flex-direction: column;
+}
+
+/* last child of the table */
+table:nth-last-child {
+	border-spacing: 0px 0px;
+}
+
+/* table labels */
+th label, label {
+	font-family: 'DM Serif Display', serif;
+	letter-spacing: 0.5px;
+	text-align: left;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+/* table inputs */
+td input {
+	width: 350px;
+}
+
+/* text input, 
+email input,
+telephone number input,
+textarea,
+password input */
+input[type=text], 
+input[type=email], 
+input[type=tel], 
+textarea, 
+input[type=password] {
+	padding: 5px 10px;
+	border: 2px solid #000;
+	border-radius: 5px;
+	font-family: 'DM Sans', sans-serif;
+	font-size: 18px;
+}
+
+
+/* text input, 
+email input,
+telephone number input,
+textarea,
+password input, 
+all on focus */
+input[type=text]:focus, 
+input[type=email]:focus, 
+input[type=tel]:focus, 
+textarea:focus, 
+input[type=password]:focus {
+	border: 2px solid #E4008A;
+}
+
+/* the table and its components */
+tbody, td, tfoot, th, thead, tr {
+	display: flex;
+	flex-direction: column;
+}
+
+/* table row */
+tr {
+	margin-top: 2px;
+}
+
+/* the first table row */
+tr:first-of-type {
+	margin-top: 0px;
+}
+
+/* item instances */
+.item-instances {
+	max-width: fit-content;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 10px;
+}
+
+/* item instance paragraphs */
+.item-instances p {
+	text-align: left;
+}
+
+/* before an item instance */
+.item-instance:before {
+	content: "\266B";
+	font-size: 20px;
+	line-height: 1;
+	text-align: center;
+	display: inline-block;
+	width: 100%;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+/* item instance that is available */
+.text-success {
+	color: #367E18!important; /* using !important to override the scss */
+	font-family: 'DM Serif Display', serif;
+	letter-spacing: 0.5px;
+}
+
+/* item instance that is already loaned */
+.text-warning {
+	color: #F86F03!important; /* using !important to override the scss */
+	font-family: 'DM Serif Display', serif;
+	letter-spacing: 0.5px;
+}
+
+/* should be hidden on mobile but display on bigger screens */
+a span.mobile-hide {
+	display: inline;
+}
+
+/* should display on mobile but be hidden on bigger screens */
+a span.mobile-show, li span.mobile-show {
+	display: none;
+	visibility: hidden;
+}
+
+/* SCREENS WITH A WIDTH SMALLER THAN 700PX */
+@media screen and (max-width: 700px) {
+	.content > * {
+		width: auto;
+	}
+	
+	/* the navigation bar's link symbols */
+	.material-symbols-rounded {
+		font-size: 32px!important; /* using !important to override the symbols css */
+		padding-top: 23px;
+		padding-bottom: 23px;
+	}
+
+	/* hiding elements that should be hidden on mobile and the username */
+	a span.mobile-hide, .nav-right-user {
+		display: none;
+		visibility: hidden;
+	}
+
+	/* should show on mobile */
+	a span.mobile-show {
+		display: inline;
+		visibility: visible;
+		position: relative;
+		top: 5px;
+	}
+
+	/* first heading */
+	h1 {
+		font-size: 42px;
+	}
+
+	/* second heading */
+	h2 {
+		font-size: 35px;
+	}
+
+	/* the title on the home page */
+	.main-title {
+		width: 100%;
+		margin-bottom: 10px;
+	}
+
+	/* paragraphs, list items, and footer text paragraphs */
+	p, li, .footer-text p {
+		font-size: 17px;
+	}
+
+	/* the black and white decoration circles */
+	.white-circle, .footer-text .white-circle, .black-circle {
+		display: none;
+	}
+
+	/* the home page banner, every other banner, and the footer's  banner */
+	.banner, .short-banner, .footer {
+		background-size: 200%;
+	}
+
+	/* the home page banner and every other page's banner */
+	.banner,
+	.short-banner {
+		margin-top: 84px;
+		box-shadow: inset 0 0 0 100vmax rgba(0,0,0,.2);
+	}
+
+	/* the home page's banner */
+	.banner {
+		height: 145px;
+		background-image: url("../images/tall_banner_images/back-wall.jpg");
+	}
+
+	/* every banner except the home page */
+	.short-banner {
+		height: 120px;
+	}
+
+	/* the shop and item detail page banners */
+	.shop-banner, .detail-banner {
+		background-image: url("../images/short_banner_images/jazz-records.jpg");
+	}
+
+	/* the about page's banner */
+	.about-banner {	
+		background-image: url("../images/short_banner_images/pink-and-yellow-records.jpg");
+	}
+
+	/* the contact page's banner */
+	.contact-banner {
+		background-image: url("../images/short_banner_images/assorted-phones.jpg");
+	}
+
+	/* the user's rented item's page's banner */
+	.rented-banner {
+		background-image: url("../images/short_banner_images/pink-record.jpg");
+	}
+
+	/* the home banner's text and the footer banner's text */
+	.banner-text, .footer-text {
+		text-shadow: 0px 0px 5px #000, 0px 0px 5px #000, 0px 0px 5px #000, 0px 0px 5px #000;
+	}
+
+	/* the footer */
+	.footer {
+		background-image: url('../images/tall_banner_images/assorted-records.jpg');
+	}
+
+	/* the footer and the footer text */
+	.footer, .footer-text {
+		height: 175px;
+	}
+
+	/* the content on the home page and every other page */
+	.home-content, .content {
+		padding-left: 25px;
+		padding-right: 25px;
+	}
+
+	/* the list on the home page */
+	.home-list {
+		padding-left: 16px;
+	}
+
+	/* the store's address */
+	.address {
+		margin-top: 20px;
+	}
+
+	/* the shop page's list */
+	.item-list {
+		width: 100%;
+	}
+
+	/* items on the item list */
+	.item {
+		height: 165px;
+		width: 165px;
+		margin: 3px;
+		background-color: #000;
+	}
+
+	/* items' text */
+	.item-text {
+		height: 165px;
+		width: 165px;
+		background: radial-gradient(circle, rgba(255,255,255,1) 57%, rgba(255,255,255,0) 58%);
+	}
+
+	/* the list items on the item list */
+	.item-list li {
+		background-repeat: no-repeat;
+		background-size: 165px 165px;
+		box-shadow: none;
+	}
+
+	/* the link text in an item's text*/
+	.link-text {
+		padding-top: 57px;
+		padding-bottom: 57px;
+	}
+
+	/* the image and all inputs */
+	.item-image img, 
+	input[type=text], 
+	input[type=email], 
+	input[type=tel], 
+	textarea, 
+	input[type=password] {
+		width: 100%;
+	}
+
+	/* the submit and reset inputs */
+	input[type="submit"], input[type="reset"] {
+		box-shadow: none;
+	}
+
+	/* the entire nav bar */
+	.nav {
+		position: fixed;
+		width: 100%;
+	}
+
+	/* the sidebar-nav */
+	.sidebar-nav {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+
+	/* the unordered list of links in the sidebar-nav */
+	ul.sidebar-nav a {
+		padding-right: 13px;
+		padding-left: 13px;
+	}
+
+	/* the unordered list of list items in the sidebar-nav */
+	ul.sidebar-nav li {
+		font-size: 30px;
+	}
+} /* don't delete this curly brace! */

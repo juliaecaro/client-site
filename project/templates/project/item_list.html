@@ -1,0 +1,49 @@
+<!-- A page listing all items available for rent with an image and the title/name -->
+{% extends "base_generic.html" %}
+
+{% block content %}
+<!-- banner for the shop page -->
+<div class="short-banner shop-banner">
+	<!-- banner text -->
+	<div class="banner-text">
+		<!-- page title -->
+		<h1>Merchandise</h1>
+	</div>
+</div>
+	<!-- page's main content -->
+	<div class="content shop-content">
+		<!-- the items available to rent -->
+		<div class="items">
+			<!-- if there are items available to rent, show them -->
+			{% if item_list %}
+				<!-- the unordered item list -->
+				<ul class="item-list">
+					<!-- get each item in the item list -->
+					{% for item in item_list %}
+						<!-- the list item -->
+						<li class="item">
+							<!-- the item's text -->
+							<div class="item-text">
+								<!-- the link to the item's detail page, should be the absolute url -->
+								<a href="{{ item.get_absolute_url }}">
+									<!-- the link's text -->
+									<div class="link-text">
+										<!-- the item's title -->
+										<p class="item-title">{{ item.title }}</p>
+										<!-- a black dot for decoration, should not show on text readers -->
+										<p class="black-circle" aria-hidden="true">⚫</p>
+										<!-- the item's artist -->
+										<p class="item-artist">({{item.artist}})</p>
+									</div>
+								</a>
+							</div>
+						</li>
+					{% endfor %}
+				</ul>
+			<!-- if there aren't any items available to rent, show this sentence instead -->
+			{% else %}
+				<p>There is nothing to rent in the Record Rental store at this time.</p>
+			{% endif %}
+		</div>
+	</div>
+{% endblock %}

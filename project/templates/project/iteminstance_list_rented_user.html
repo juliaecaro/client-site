@@ -1,0 +1,36 @@
+<!-- a page showing every item a logged-in user has rented -->
+{% extends "base_generic.html" %}
+
+{% block content %}
+<!-- banner for the rented items page -->
+<div class="short-banner rented-banner">
+	<!-- banner text -->
+	<div class="banner-text">
+		<!-- page title -->
+		<h1>Your Items</h1>
+	</div>
+</div>
+	<!-- page's main content -->
+	<div class="content">
+		<!-- the user's rented items list's div -->
+		<div class="list">
+			<!-- if the user has rented items, show the list of those items -->
+			{% if iteminstance_list %}
+				<!-- the unordered user's rented items list -->
+				<ul class="rented-list">
+					<!-- each individual item in the user's rented items list -->
+					{% for iteminst in iteminstance_list %}
+						<!-- the list item -->
+						<li class="{% if iteminst.is_overdue %}text-danger{% endif %}">
+							<!-- a link to the item's detail page -->
+							<a href="{% url 'item-detail' iteminst.item.pk %}">{{ iteminst.item.title }}</a> ({{ iteminst.due_back }})
+						</li>
+					{% endfor %}
+				</ul>
+			<!-- if the user hasn't rented any items yet, show this sentence instead -->
+			{% else %}
+				<p>You haven't rented any items yet.</p>
+			{% endif %}
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,61 @@
+<!-- A detail page for all items with name, artist (if applicable), description, and at least one image -->
+{% extends "base_generic.html" %}
+
+{% block content %}
+<!-- banner for the item detail page -->
+<div class="short-banner detail-banner">
+	<!-- banner text -->
+	<div class="banner-text">
+		<!-- page title -->
+		<h1>{{ item.title }}</h1>
+	</div>
+</div>
+	<!-- page's main content -->
+	<div class="content">
+		<!-- item's details -->
+		<div class="item-details">
+			<!-- the item's image -->
+			<div class="item-image">
+				<img src="/static/images/records-cds-and-cassettes.jpg" alt="records, cds, and cassette tapes" height="auto" width="445">
+			</div>
+			<!-- the item's information -->
+			<div class="item-information">
+				<!-- the item's statistics -->
+				<div class="item-stats">
+					<!-- the item's artist -->
+					<p class="item-statistic"><strong>Artist:</strong> {{ item.artist }}</a></p>
+					<!-- the item's description -->
+					<p class="item-statistic"><strong>Description:</strong> {{ item.description }}</p>
+					<!-- the item's language -->
+					<p class="item-statistic"><strong>Language:</strong> {{ item.language }}</p>
+					<!-- the item's type -->
+					<p class="item-statistic"><strong>Item Type:</strong> {{ item.type.all|join:", " }}</p>
+				</div>
+				<!-- a paragraph for any extra information about the item -->
+				<p class="item-paragraph">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Socis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt, ivamus elementum.</p>
+			</div>
+			<!-- individual instances of the item -->
+			<div class="item-instances">
+				<!-- the div title -->
+				<h2>Item Instances</h2>
+		
+				{% for iteminstance in item.iteminstance_set.all %}
+					<div class="item-instance">
+						<!-- showing the item's current status -->
+						<p class="{% if iteminstance.status == 'a' %}text-success{% elif copy.status == 'm' %}text-danger{% else %}text-warning{% endif %}">
+							{{ iteminstance.get_status_display }}
+						</p>
+						<!-- if the item's availability is 'a', then show the date it's due by -->
+						{% if iteminstance.status != 'a' %}
+							<p><strong>Due to be returned:</strong> {{ iteminstance.due_back }}</p>
+						{% endif %}
+							<!-- the item's imprint -->
+							<p><strong>Imprint:</strong> {{ iteminstance.imprint }}</p>
+							<!-- the item's ID -->
+							<p><strong>Id:</strong> {{ iteminstance.id }}</p>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+{% endblock %}

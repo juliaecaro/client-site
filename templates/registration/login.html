@@ -1,0 +1,49 @@
+<!-- log in page -->
+{% extends "base_generic.html" %}
+
+{% block content %}
+<!-- banner for the logged in page -->
+<div class="short-banner registration-banner">
+</div>
+	<!-- page's main content -->
+	<div class="content">
+		<!-- if the login form has errors, display this sentence -->
+		{% if form.errors %}
+			<p class="registration-text">Your username and password didn't match. Please try again.</p>
+		{% endif %}
+	
+		{% if next %}
+			<!-- if the user is logged in but doesn't have access to a page, display this message -->
+			{% if user.is_authenticated %}
+				<p class="registration-text">Your account doesn't have access to this page. To proceed, please login with an account that has access.</p>
+			{% else %}
+				<!-- if the user isn't logged in and and needs access to see a page, display this message -->
+				<p class="registration-text">Please login to see this page.</p>
+			{% endif %}
+		{% endif %}
+		<!-- the log in form -->
+		<form method="post" action="{% url 'login' %}">
+			{% csrf_token %}
+			<table>
+				<tr>
+					<td>{{ form.username.label_tag }}</td>
+					<td>{{ form.username }}</td>
+				</tr>
+				<tr>
+					<td>{{ form.password.label_tag }}</td>
+					<td>{{ form.password }}</td>
+				</tr>
+			</table>
+			<div class="buttons">
+				<!-- submit button -->
+				<input type="submit" value="login">
+				<!-- next button -->
+				<input type="hidden" name="next" value="{{ next }}">
+			</div>
+		</form>
+	
+		{# Assumes you setup the password_reset view in your URLconf #}
+		<!-- lost password link -->
+		<p class="registration-link"><a href="{% url 'password_reset' %}">Lost your password?</a></p>
+	</div>
+{% endblock %}

@@ -1,0 +1,35 @@
+<!-- Julia Caro -->
+<!-- Last edited on: November 30, 2023 -->
+
+<!-- Home page with a welcome message, an appropriate banner image, and a list of items available to rent -->
+{% extends "base_generic.html" %}
+
+{% block content %}
+	<!-- Banner Image -->
+	<div class="banner">
+		<div class="banner-text">
+			<h1 class="main-title">Record Rental</h1>
+			<!-- a white dot for decoration, this should not show on screen readers -->
+			<p class="white-circle" aria-hidden="true">⚪</p>
+			<!-- Welcome Message -->
+			<p class="home-text">Welcome to Record Rental, a website developed by <em>Mozilla Developer Network!</em></p>
+		</div>
+	</div>
+	<!-- home page's main content -->
+	<div class="home-content">
+		<h2>Our Merchandise</h2>
+		<p class="home-content-text">The Record Rental store has the following items available to rent:</p>
+		<div class="list">
+			<ul class="home-list">
+				<!-- the number of vinyl records available for rent -->
+				<li><strong>Vinyl Records:</strong> {{ num_record_instances_available }} of {{ num_record }} available</li>
+				<!-- the number of CDs available for rent -->
+				<li><strong>CDs:</strong> {{ num_cd_instances_available }} of {{ num_cd }} available</li>
+				<!-- the number of tapes available for rent -->
+				<li><strong>Cassette Tapes:</strong> {{ num_tape_instances_available }} of {{ num_tape }} available</li>
+				<!-- Bonus #1: the number of equipment items available for rent -->
+				<li><strong>Converter Tools:</strong> {{ num_converter_instances_available }} of {{ num_converter }} available</li>
+			</ul>
+		</div>
+	</div>
+{% endblock %}

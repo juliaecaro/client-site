@@ -1,0 +1,15 @@
+<!-- just logged out page -->
+{% extends "base_generic.html" %}
+
+{% block content %}
+<!-- banner for the logged out page -->
+<div class="short-banner registration-banner">
+</div>
+	<!-- page's main content -->
+	<div class="content">
+		<!-- the logged out message -->
+		<p class="registration-text">Logged out!</p>
+		<!-- the link to go to the log in page -->
+		<p class="registration-link"><a href="{% url 'login'%}">Click here to login again.</a></p>
+	</div>
+{% endblock %}
